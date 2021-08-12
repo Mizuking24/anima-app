@@ -1,24 +1,35 @@
-# README
+# ANIMA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+視聴したアニメを評価して投稿することで友人と共有することができるSNSです。
 
-Things you may want to cover:
 
-* Ruby version
+### サイトテーマ
+アニメの楽しさを今まで以上に。
 
-* System dependencies
+### テーマを選んだ理由
+アニメは日本が誇る素晴らしい文化の一つであり、現在ではとても人気がありアニメに対するイメージはより良くなっています。しかし、一昔前まではアニメに対して偏見を持つ人が大勢いました。事実アニメを好きという理由だけで辛い経験をした人もいると思います。そのためアニメは好きだけど周りの人には言いづらいため全く別の場で誰かと共有したいと思っている人や純粋にアニメについて多くの人と語りたいと思う人、次にどのアニメを見るか悩んでいる人にとってもとても使いやすいツールになると考えました。また複数の評価基準を儲けることで人それぞれの受け取り方を知り、多角的方面からアニメを見ることができます。アニメに限った話ではありませんが作品というものは人の心を潤し、豊かにしてくれるものです。是非全世界のアニメ好きの方々に今まで以上にアニメを楽しんで欲しいという願いがこのテーマを選んだ理由です。
 
-* Configuration
+### ターゲットユーザ
+・純粋にアニメについて多くの人と語りたいと思う人
+・アニメは好きだけど周りの人には言いづらいため全く別の場で誰かと共有したいと思っている人
+・次にどのアニメを見るか悩んでいる人
 
-* Database creation
 
-* Database initialization
+### 主な利用シーン
+アニメを見た後に投稿する。
+見たいアニメを探すときにフォローしている人の投稿を見る。
+投稿にコメントして全世界の人とアニメについて語る。
 
-* How to run the test suite
+## 設計書
+<...>
 
-* Services (job queues, cache servers, search engines, etc.)
+## チャレンジ要素一覧
+<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
 
-* Deployment instructions
-
-* ...
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
