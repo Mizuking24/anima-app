@@ -1,7 +1,6 @@
 # ANIMA
 
 ## サイト概要
-視聴したアニメを評価して投稿することで友人と共有することができるSNSです。
 
 
 ### サイトテーマ
@@ -22,10 +21,9 @@
 投稿にコメントして全世界の人とアニメについて語る。
 
 ## 設計書
-<...>
 
 ## チャレンジ要素一覧
-<https://docs.google.com/spreadsheets/d/1E4Quehglf9PxM1XTE-ft2X5-hJ5dmoJhsI-UJlgzVmY/edit#gid=0>
+https://docs.google.com/spreadsheets/d/1L9lLrEXNcbHB_Sp1XMqwiBtrX64yQZBkrHYDpRKHW7E/edit#gid=0
 
 ## 開発環境
 - OS：Linux(CentOS)
