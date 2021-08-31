@@ -1,0 +1,12 @@
+<h3>タイムライン</h3>
+<% @posts.each do |post| %>
+<div>
+  <%= attachment_image_tag post, :image %>
+  <%= link_to post_path(post) do %>
+    <%= image_tag('142_refileDownloadImage.png') %>
+  <% end %>
+  <p>タイトル：<%= post.title %></p>
+  <p>感想：<%= post.body %></p>
+  <p>ユーザーネーム：<%= post.user.name %></p>
+</div>
+<% end %>
