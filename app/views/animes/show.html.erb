@@ -1,0 +1,28 @@
+<h3>詳細画面</h3>
+<div class="post-body">
+  <%= attachment_image_tag @anime, :image %>
+  <%= image_tag('142_refileDownloadImage.png') %>
+  <p>タイトル：<%= @anime.title %></p>
+  <p>感想：<%= @anime.body %></p>
+  <p>ユーザーネーム：<%= @anime.user.name %></p>
+  <p>投稿日時：<%= @anime.created_at.strftime('%Y/%m/%d') %></p>
+  <% if @anime.user == current_user %>
+    <%= link_to "編集", edit_post_path(@anime) %>
+    <%= link_to "削除", post_path(@anime), method: :delete %>
+  <% end %>
+</div>
+
+<div class="comments">
+<p>コメント件数：<%= @anime.post_comments.count %></p>
+<% @anime.post_comments.each do |post_comment| %>
+  <p><%= image_tag('142_refileDownloadImage.png') %></p>
+  <%= post_comment.user.name %>
+  <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
+<% end %>
+</div>
+<div class="new-comment">
+<%= form_with(model:[@anime, @post_comment], local: true) do |f| %>
+  <%= f.text_area :comment, rows:'1',placeholder: "コメントをここに" %></br>
+  <%= f.submit "送信する" %></br>
+<% end %>
+</div>

@@ -1,10 +1,10 @@
-<h3>新規投稿フォーム</h3>
-<%= form_with model: @post, local:true do |f| %>
+<h3>投稿編集画面</h3>
+<%= form_with model: @anime, local:true do |f| %>
 <%= f.label :"画像" %></br>
 <%= f.attachment_field :image %></br>
 <%= f.label :"タイトル" %></br>
 <%= f.text_field :title, autoforcus: true %></br>
 <%= f.label :"感想" %></br>
 <%= f.text_area :body, autoforcus: true %></br>
-<%= f.submit :"投稿" %></br>
+<%= f.submit :"編集する" %></br>
 <% end %>

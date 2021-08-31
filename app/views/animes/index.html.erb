@@ -1,0 +1,13 @@
+<h3>タイムライン</h3>
+<% @animes.each do |anime| %>
+<div>
+  <%= attachment_image_tag anime, :image %>
+  <%= link_to anime_path(anime) do %>
+    <%= image_tag('142_refileDownloadImage.png') %>
+  <% end %>
+  <p>タイトル：<%= anime.title %></p>
+  <p>感想：<%= anime.body %></p>
+  <p>ユーザーネーム：<%= anime.user.name %></p>
+  <p><%= link_to "#{anime.post_comments.count} コメント", anime_path(anime.id) %></p>
+</div>
+<% end %>
