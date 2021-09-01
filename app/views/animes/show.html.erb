@@ -7,8 +7,8 @@
   <p>ユーザーネーム：<%= @anime.user.name %></p>
   <p>投稿日時：<%= @anime.created_at.strftime('%Y/%m/%d') %></p>
   <% if @anime.user == current_user %>
-    <%= link_to "編集", edit_post_path(@anime) %>
-    <%= link_to "削除", post_path(@anime), method: :delete %>
+    <%= link_to "編集", edit_anime_path(@anime) %>
+    <%= link_to "削除", anime_path(@anime), method: :delete %>
   <% end %>
   <% if @anime.favorited_by?(current_user) %>
     <p>
@@ -28,7 +28,7 @@
 <div class="comments">
 <p>コメント件数：<%= @anime.post_comments.count %></p>
 <% @anime.post_comments.each do |post_comment| %>
-  <p><%= image_tag('142_refileDownloadImage.png') %></p>
+  <p><%#= image_tag('142_refileDownloadImage.png') %></p>
   <%= post_comment.user.name %>
   <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
   <% if post_comment.user == current_user %>
