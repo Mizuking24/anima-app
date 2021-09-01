@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_31_134519) do
+ActiveRecord::Schema.define(version: 2021_09_01_085955) do
 
   create_table "animes", force: :cascade do |t|
     t.text "title"
@@ -21,9 +21,16 @@ ActiveRecord::Schema.define(version: 2021_08_31_134519) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "likes", force: :cascade do |t|
+    t.integer "anime_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "post_comments", force: :cascade do |t|
     t.integer "user_id"
-    t.integer "post_id"
+    t.integer "anime_id"
     t.text "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

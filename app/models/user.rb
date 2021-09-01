@@ -7,5 +7,5 @@ class User < ApplicationRecord
   attachment :icon
   has_many :animes, dependent: :destroy
   has_many :post_comments, dependent: :destroy
-
+  has_many :likes, dependent: :destroy
 end
