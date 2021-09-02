@@ -1,0 +1,28 @@
+<% if current_user == @user %>
+  <h3>マイページ</h3>
+<% else %>
+  <h3><%= @user.name %>さんのページ</h3>
+<% end %>
+
+<div class="profile-container">
+  <h3 class="profile-name"><%= @user.name %></h3>
+  <%= attachment_image_tag @user, :icon, :fill, 100, 100, fallback: "no_image.jpg" %>
+</div>
+
+<% if @user.id == current_user.id %>
+  <%= link_to "プロフィール編集", edit_user_path(@user) %>
+<% end %>
+
+<% @animes.each do |anime| %>
+<div>
+  <%= attachment_image_tag anime, :image %>
+  <%= link_to anime_path(anime) do %>
+    <%= image_tag('142_refileDownloadImage.png') %>
+  <% end %>
+  <p>タイトル：<%= anime.title %></p>
+  <p>感想：<%= anime.body %></p>
+  <p>ユーザーネーム：<%= anime.user.name %></p>
+  <p><%= link_to "#{anime.post_comments.count} コメント", anime_path(anime.id) %></p>
+  <P><%= "#{anime.likes.count}いいね" %></P>
+</div>
+<% end %>

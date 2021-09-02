@@ -1,0 +1,25 @@
+<h2>ユーザー一覧画面</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th>icon</th>
+      <th>name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td>
+        <%= attachment_image_tag user, :icon, :fill, 100, 100, fallback: "no_image.jpg" %>
+      </td>
+      <td>
+        <%= user.name %>
+      </td>
+      <td>
+        <%= link_to "show", user_path(user) %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
