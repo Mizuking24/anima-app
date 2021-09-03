@@ -8,6 +8,8 @@ resources :animes do
  resources :post_comments, only: [:create, :destroy]
 end
 
-resources :users, only: [:index, :show, :edit, :update]
+resources :users, only: [:index, :show, :edit, :update] do
+ get :search, on: :collection
+end
 
 end
