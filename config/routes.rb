@@ -10,6 +10,9 @@ end
 
 resources :users, only: [:index, :show, :edit, :update] do
  get :search, on: :collection
+ resources :relationships, only: [:create, :destroy]
+ get "followings" => "relationships#followings"
+ get "followers" => "relationships#followers"
 end
 
 end
