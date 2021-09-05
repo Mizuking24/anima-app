@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 2021_09_03_063024) do
     t.integer "user_id"
     t.string "image_id"
     t.text "body"
+    t.float "rate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
