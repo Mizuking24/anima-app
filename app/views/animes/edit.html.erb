@@ -4,6 +4,22 @@
 <%= f.attachment_field :image %></br>
 <%= f.label :"タイトル" %></br>
 <%= f.text_field :title, autoforcus: true %></br>
+<!-- 評価 -->
+<div class="form-group row" id="star">
+  <%= f.label :rate,'評価 '%>
+  <%= f.hidden_field :rate, id: :review_star %>
+</div>
+<!-- 評価javascript -->
+<script>
+$('#star').raty({
+  size     : 36,
+  starOff:  '<%= asset_path('star-off.png') %>',
+  starOn : '<%= asset_path('star-on.png') %>',
+  starHalf: '<%= asset_path('star-half.png') %>',
+  scoreName: 'anime[rate]',
+  half: true,
+});
+</script>
 <%= f.label :"感想" %></br>
 <%= f.text_area :body, autoforcus: true %></br>
 <%= f.submit :"編集する" %></br>

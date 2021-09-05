@@ -21,11 +21,24 @@
 
 <% @animes.each do |anime| %>
 <div>
-  <%= attachment_image_tag anime, :image %>
   <%= link_to anime_path(anime) do %>
-    <%= image_tag('142_refileDownloadImage.png') %>
+    <%= attachment_image_tag anime, :image, :fill, 500, 500, fallback: "142_refileDownloadImage.png" %>
   <% end %>
   <p>タイトル：<%= anime.title %></p>
+  <!--星評価-->
+   <div id="star-rate-<%= anime.id %>"></div>
+    <script>
+    $('#star-rate-<%= anime.id %>').raty({
+      size: 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      half: true,
+      readOnly: true,
+      score: <%= anime.rate %>,
+    });
+    </script>
+  <!--/星評価-->
   <p>感想：<%= anime.body %></p>
   <p>ユーザーネーム：<%= anime.user.name %></p>
   <p><%= link_to "#{anime.post_comments.count} コメント", anime_path(anime.id) %></p>
