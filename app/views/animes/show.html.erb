@@ -23,29 +23,26 @@
     <%= link_to "編集", edit_anime_path(@anime) %>
     <%= link_to "削除", anime_path(@anime), method: :delete %>
   <% end %>
-  <!--いいね-->
-  <div id="likes_buttons_<%= @anime.id %>">
-    <%= render partial: 'likes/like', locals: { anime: @anime} %>
-  </div>
-  <!--/いいね-->
 </div>
 
-<div class="comments">
-<p>コメント件数：<%= @anime.post_comments.count %></p>
-<% @anime.post_comments.each do |post_comment| %>
-  <p><%#= image_tag('142_refileDownloadImage.png') %></p>
-  <%= post_comment.user.name %>
-  <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
-  <% if post_comment.user == current_user %>
-    <div class="comment-delete">
-      <%= link_to "削除",  anime_post_comment_path(post_comment.anime, post_comment), method: :delete %>
+<!--いいね-->
+<div id="likes_buttons_<%= @anime.id %>">
+  <%= render partial: 'likes/like', locals: { anime: @anime} %>
+</div>
+<!--/いいね-->
+
+<!--コメント-->
+<div id="comments_area">
+  <%= render partial: 'post_comments/index', locals: { anime: @anime } %>
+</div>
+<!--/コメント-->
+
+<!--コメントフォーム-->
+<div class="new-comment">
+  <% if user_signed_in? %>
+    <div class="comment-create">
+      <%= render partial: 'post_comments/form', locals: { post_comment: @post_comment, anime: @anime } %>
     </div>
   <% end %>
-<% end %>
 </div>
-<div class="new-comment">
-<%= form_with(model:[@anime, @post_comment], local: true) do |f| %>
-  <%= f.text_area :comment, rows:'1',placeholder: "コメントをここに" %></br>
-  <%= f.submit "送信する" %></br>
-<% end %>
-</div>
+<!--/コメントフォーム-->
