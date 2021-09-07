@@ -1,15 +1,13 @@
 class LikesController < ApplicationController
   def create
-    anime = Anime.find(params[:anime_id])
-    like = current_user.likes.new(anime_id: anime.id)
+    @anime = Anime.find(params[:anime_id])
+    like = current_user.likes.new(anime_id: params[:anime_id])
     like.save
-    redirect_to anime_path(anime)
   end
 
   def destroy
-    anime = Anime.find(params[:anime_id])
-    like = current_user.likes.find_by(anime_id: anime.id)
+    @anime = Anime.find(params[:anime_id])
+    like = Like.find_by(anime_id: params[:anime_id], user_id: current_user.id)
     like.destroy
-    redirect_to anime_path(anime)
   end
 end
