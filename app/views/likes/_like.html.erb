@@ -2,16 +2,18 @@
   <% if @anime.liked_by?(current_user) %>
     <p>
       <%= link_to anime_likes_path(@anime), method: :delete, remote: true do %>
-        ♥<%= @anime.likes.count %> いいね
+        <i class="fas fa-heart unlike-btn"></i>
       <% end %>
+      <%= @anime.likes.count %>
     </p>
     <% else %>
     <p>
       <%= link_to anime_likes_path(@anime), method: :post, remote: true do %>
-        ♡<%= @anime.likes.count %> いいね
+        <i class="fas fa-heart like-btn"></i>
       <% end %>
+      <%= @anime.likes.count %>
     </p>
   <% end %>
 <% else %>
-  <p><%= anime.likes.count %>いいね</p>
+  <p><i class="fas fa-heart like-btn"></i><%= anime.likes.count %></p>
 <% end %>

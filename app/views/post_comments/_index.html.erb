@@ -1,11 +1,23 @@
-<p>コメント件数：<%= anime.post_comments.count %></p>
-<% anime.post_comments.each do |post_comment| %>
-  <%= post_comment.user.name %></br>
-  <%= post_comment.comment %></br>
-  <%= post_comment.created_at.strftime('%Y/%m/%d') %></br>
-  <% if post_comment.user == current_user %>
-    <div class="comment-delete">
-      <%= link_to "削除",  anime_post_comment_path(post_comment.anime, post_comment), method: :delete, remote: true %>
-    </div>
+<table class="table">
+  <tr>
+    <th>コメント一覧</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% anime.post_comments.each do |post_comment| %>
+  <tr>
+    <td><%= attachment_image_tag post_comment.user, :icon, :fill, 60, 60, fallback: "no_image.jpg", class:"rounded-circle icon_image mr-3 mb-3" %></td>
+    <td><%= post_comment.user.name %></td>
+    <td><%= post_comment.comment %></td>
+    <td><%= post_comment.created_at.strftime('%Y/%m/%d') %></td>
+    <td>
+      <% if post_comment.user == current_user %>
+        <div class="comment-delete">
+          <%= link_to "削除",  anime_post_comment_path(post_comment.anime, post_comment), method: :delete, remote: true %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
   <% end %>
-<% end %>
+</table>
