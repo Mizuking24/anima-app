@@ -1,2 +1,2 @@
-$("#comments_area").html("<%= j(render 'index', { post_comments: @post_comment.anime.post_comments }) %>")
+$("#comments_area").html("<%= j(render 'index', { anime: @anime }) %>")
 $("textarea").val('')

@@ -24,7 +24,6 @@
     <%= link_to "削除", anime_path(@anime), method: :delete %>
   <% end %>
 </div>
-
 <!--いいね-->
 <div id="likes_buttons_<%= @anime.id %>">
   <%= render partial: 'likes/like', locals: { anime: @anime} %>
@@ -36,7 +35,6 @@
   <%= render partial: 'post_comments/index', locals: { anime: @anime } %>
 </div>
 <!--/コメント-->
-
 <!--コメントフォーム-->
 <div class="new-comment">
   <% if user_signed_in? %>
