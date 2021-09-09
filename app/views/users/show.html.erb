@@ -1,47 +1,70 @@
-<% if current_user == @user %>
-  <h3>マイページ</h3>
-<% else %>
-  <h3><%= @user.name %>さんのページ</h3>
-<% end %>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-8 offset-md-3">
+      <% if current_user == @user %>
+        <h3>Mypage</h3>
+      <% end %>
+    </div>
+    <div class="col-md-8 offset-md-4">
+      <%= attachment_image_tag @user, :icon, :fill, 100, 100, fallback: "no_image.jpg", class:"rounded-circle icon_image mr-3 mb-3" %>
+    </div>
+    <div class="col-md-3 offset-md-4">
+      <div class="profile-container">
+        <h4 class="col-md-8 profile-name"><%= @user.name %></h4>
+        <div class="col-md-5">
+          <% if @user.id == current_user.id %>
+            <%= link_to "", edit_user_path(@user), class: "btn btn-outline-secondary btn-block fas fa-user-cog edit_user_2311" %>
+          <% end %>
+      </div>
+      </div>
+      <p><%= @user.introduction %></p>
+      <%= link_to "#{@user.followings.count}フォロー中", user_followings_path(@user), class:"text-secondary" %>
+      <span> | </span>
+      <%= link_to "#{@user.followers.count}フォロワー", user_followers_path(@user), class:"text-secondary" %></br>
+      <% if current_user != @user %>
+        <%= render 'relationships/follow_button', user: @user %>
+      <% end %>
+    </div>
+  </div>
 
-<div class="profile-container">
-  <h3 class="profile-name"><%= @user.name %></h3>
-  <%= attachment_image_tag @user, :icon, :fill, 100, 100, fallback: "no_image.jpg" %></br>
-  <%= link_to "#{@user.followings.count}フォロー中", user_followings_path(@user) %>
-  <%= link_to "#{@user.followers.count}フォロワー", user_followers_path(@user)%>
+  <div class="card-list-container py-4">
+    <% @animes.each do |anime| %>
+    <div class="card w-50 mx-auto mt-4 shadow-lg">
+      <%= link_to anime_path(anime) do %>
+        <%= attachment_image_tag anime, :image, :fill, 500, 500, fallback: "142_refileDownloadImage.png", class:"card-img-top"; %>
+      <% end %>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-2">
+            <%= attachment_image_tag anime.user, :icon, :fill, 60, 60, fallback: "no_image.jpg", class:"mt-3 rounded-circle"; %>
+          </div>
+          <div class="col-10">
+            <p class="card-title">
+              <%= link_to(anime_path(anime.id), class:"text-dark") do %>
+                <strong><i class="far fa-flag"></i><span> <%= anime.title %></span></strong>
+              <% end %>
+            </p>
+            <p class="card-text"><%= anime.body %></p>
+            <!--星評価-->
+             <div id="star-rate-<%= anime.id %>"></div>
+              <script>
+              $('#star-rate-<%= anime.id %>').raty({
+                size: 36,
+                starOff:  '<%= asset_path('star-off.png') %>',
+                starOn : '<%= asset_path('star-on.png') %>',
+                starHalf: '<%= asset_path('star-half.png') %>',
+                half: true,
+                readOnly: true,
+                score: <%= anime.rate %>,
+              });
+              </script>
+            <!--/星評価-->
+            <span><i class="fas fa-user"></i> By <%= anime.user.name %> ｜ </span>
+            <span class="text-dark"><%= anime.post_comments.count %> コメント</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
-
-<% if current_user != @user %>
-  <%= render 'relationships/follow_button', user: @user %>
-<% end %>
-
-<% if @user.id == current_user.id %>
-  <%= link_to "プロフィール編集", edit_user_path(@user) %>
-<% end %>
-
-<% @animes.each do |anime| %>
-<div>
-  <%= link_to anime_path(anime) do %>
-    <%= attachment_image_tag anime, :image, :fill, 500, 500, fallback: "142_refileDownloadImage.png" %>
-  <% end %>
-  <p>タイトル：<%= anime.title %></p>
-  <!--星評価-->
-   <div id="star-rate-<%= anime.id %>"></div>
-    <script>
-    $('#star-rate-<%= anime.id %>').raty({
-      size: 36,
-      starOff:  '<%= asset_path('star-off.png') %>',
-      starOn : '<%= asset_path('star-on.png') %>',
-      starHalf: '<%= asset_path('star-half.png') %>',
-      half: true,
-      readOnly: true,
-      score: <%= anime.rate %>,
-    });
-    </script>
-  <!--/星評価-->
-  <p>感想：<%= anime.body %></p>
-  <p>ユーザーネーム：<%= anime.user.name %></p>
-  <p><%= link_to "#{anime.post_comments.count} コメント", anime_path(anime.id) %></p>
-  <P><%= "#{anime.likes.count}いいね" %></P>
-</div>
-<% end %>

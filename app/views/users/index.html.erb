@@ -17,7 +17,7 @@
         <tbody>
             <% @users.each do |user| %>
             <tr>
-              <td><%= attachment_image_tag user, :icon, :fill, 70, 70, fallback: "no_image.jpg", class:"rounded-circle icon_image mr-3 mb-3"%></td>
+              <td><%= attachment_image_tag user, :icon, :fill, 70, 70, fallback: "no_image.jpg", class:"rounded-circle icon_image mr-3 mb-3" %></td>
               <td><%= user.name %></td>
               <td><%= user.introduction %></td>
               <td><%= link_to "show", user_path(user), class:"btn btn-primary" %></td>
