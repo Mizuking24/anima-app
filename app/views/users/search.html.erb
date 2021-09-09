@@ -1,20 +1,33 @@
-<h2>User search</h2>
-<%= form_with url: search_users_path, method: :get, local: true do |f| %>
-  <%= f.text_field :name %>
-  <%= f.submit :search %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%=link_to user.name, user_path(user) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3 offset-md-4">
+      <h2>User search</h2>
+      <%= form_with url: search_users_path, method: :get, local: true do |f| %>
+        <%= f.text_field :name, class:"form-control" %>
+        <%= f.submit :search, class:"btn btn-success saerch-button" %>
+      <% end %>
+    </div>
+    <div class="col-md-6 offset-md-3">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>icon</th>
+            <th>Name</th>
+            <th>introduction</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td><%= attachment_image_tag user, :icon, :fill, 70, 70, fallback: "no_image.jpg", class:"rounded-circle icon_image mr-3 mb-3"%></td>
+              <td><%= user.name %></td>
+              <td><%= user.introduction %></td>
+              <td><%= link_to "show", user_path(user), class:"btn btn-primary" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
