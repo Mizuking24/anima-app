@@ -1,1 +1,11 @@
-<h1>topページです</h1>
+<div class="top-container">
+  <div class="row">
+    <div class="top-item">
+      <h1 class="top-title">ようこそ、ANIMAへ。</h1>
+      <div class="top-button">
+        <%= link_to "新規登録", new_user_registration_path, class:"top-signup btn btn-success btn-lg" %>
+        <%= link_to "ログイン", new_user_session_path, class:"btn btn-primary btn-lg" %>
+      </div>
+    </div>
+  </div>
+</div>
