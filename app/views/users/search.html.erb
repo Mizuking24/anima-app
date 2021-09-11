@@ -13,6 +13,7 @@
           <tr>
             <th>icon</th>
             <th>Name</th>
+            <th></th>
             <th>introduction</th>
             <th></th>
           </tr>
@@ -22,6 +23,7 @@
             <tr>
               <td><%= attachment_image_tag user, :icon, :fill, 70, 70, fallback: "no_image.jpg", class:"rounded-circle icon_image mr-3 mb-3"%></td>
               <td><%= user.name %></td>
+              <td></td>
               <td><%= user.introduction %></td>
               <td><%= link_to "show", user_path(user), class:"btn btn-primary" %></td>
             </tr>

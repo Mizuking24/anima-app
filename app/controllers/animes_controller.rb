@@ -10,8 +10,12 @@ class AnimesController < ApplicationController
   def create
     @anime = Anime.new(anime_params)
     @anime.user_id = current_user.id
-    @anime.save
-    redirect_to animes_path
+    if @anime.save
+      flash[:notice] = "You have created post successfully."
+      redirect_to animes_path
+    else
+      render :new
+    end
   end
 
   def show

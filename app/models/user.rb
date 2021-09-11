@@ -15,6 +15,8 @@ class User < ApplicationRecord
   # 【class_name: "Relationship"】は省略可能
   has_many :followings, through: :relationships, source: :followed
   # 与フォロー関係を通じて参照→follower_idをフォローしている人
+  
+  validates :name, presence: true
 
   def follow(user_id)
     relationships.create(followed_id: user_id)

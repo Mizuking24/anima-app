@@ -2,6 +2,16 @@
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">ユーザー編集画面</h5>
+      <!--エラーメッセージ-->
+      <div class="error-message">
+        <% if @user.errors.any? %>
+          <%= @user.errors.count %>件のエラーが発生しました</br>
+          <% @user.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+      </div>
+      <!--/エラーメッセージ-->
       <div class="form-body p-4">
         <%= form_with model: @user, local: true do |f| %>
           <%= attachment_image_tag @user, :icon, :fill, 60, 60, fallback: "no_image.jpg", class:"rounded-circle icon_image mr-3 mb-3" %>

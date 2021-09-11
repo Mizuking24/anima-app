@@ -2,6 +2,16 @@
   <div class="row no-gutters">
     <div class="col-md-5 col-sm-10 mx-2 mx-sm-auto shadow-lg rounded px-0 my-5">
       <h5 class="text-dark bg-light p-4 mb-0">新規投稿フォーム</h5>
+      <!--エラーメッセージ-->
+      <div class="error-message">
+        <% if @anime.errors.any? %>
+          <%= @anime.errors.count %>件のエラーが発生しました</br>
+          <% @anime.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        <% end %>
+      </div>
+      <!--/エラーメッセージ-->
       <div class="form-body p-4">
         <%= form_with model: @anime, local:true do |f| %>
           <%= f.attachment_field :image, class: "w-100" %>
