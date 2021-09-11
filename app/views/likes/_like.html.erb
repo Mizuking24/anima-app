@@ -1,4 +1,4 @@
-<% if user_signed_in? %>
+<% if current_user != @anime.user %>
   <% if @anime.liked_by?(current_user) %>
     <p>
       <%= link_to anime_likes_path(@anime), method: :delete, remote: true do %>
@@ -6,7 +6,7 @@
       <% end %>
       <%= @anime.likes.count %>
     </p>
-    <% else %>
+  <% else %>
     <p>
       <%= link_to anime_likes_path(@anime), method: :post, remote: true do %>
         <i class="fas fa-heart like-btn"></i>

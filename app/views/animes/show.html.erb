@@ -29,16 +29,22 @@
           <!--/星評価-->
           <span><i class="fas fa-user"></i><%= link_to @anime.user.name, user_path(@anime.user), class:"text-dark" %> ｜ </span>
           <span class="text-dark">投稿日時：<%= @anime.created_at.strftime('%Y/%m/%d') %></span>
-          <!--いいね-->
-          <div id="likes_buttons_<%= @anime.id %>">
-            <%= render partial: 'likes/like', locals: { anime: @anime} %>
+          <div class="flex-container">
+            <!--いいね-->
+            <div id="likes_buttons_<%= @anime.id %>">
+              <%= render partial: 'likes/like', locals: { anime: @anime} %>
+            </div>
+            <!--/いいね-->
+            <div class="comment-count">
+              <p>コメント<%= @anime.post_comments.count %>件</p>
+            </div>
+            <div class="edit-destroy-button">
+              <% if @anime.user == current_user %>
+                <%= link_to "編集", edit_anime_path(@anime) %>
+                <%= link_to "削除", anime_path(@anime), method: :delete %>
+              <% end %>
+            </div>
           </div>
-          <!--/いいね-->
-          <p>コメント<%= @anime.post_comments.count %>件</p>
-          <% if @anime.user == current_user %>
-            <%= link_to "編集", edit_anime_path(@anime) %>
-            <%= link_to "削除", anime_path(@anime), method: :delete %>
-          <% end %>
         </div>
       </div>
     </div>
