@@ -44,6 +44,9 @@ https://docs.google.com/spreadsheets/d/1L9lLrEXNcbHB_Sp1XMqwiBtrX64yQZBkrHYDpRKH
   - Deleteについて
    destroyアクションを定義する。実装の内容はupdateと同じ。
 
+- テストについて
+ 今回すべてをテストできているわけではありませんがメインとなる機能にフォーカスしてテストを実行しています。
+
 ## 開発環境
 - OS：Linux(CentOS)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
