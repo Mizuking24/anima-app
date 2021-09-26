@@ -23,14 +23,17 @@ ANIMAは視聴したアニメを評価して投稿することで友人と共有
 暇つぶしや誰かとアニメについて話したい時。
 
 ## 設計書
-<...>
+https://docs.google.com/spreadsheets/d/1hzpUGtmykGSW78d3MzbVpXwQ7QpmjdB4XGOB37YG_fw/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/11wZ2UdfGLuQQmltukb9B5xo6k_fhb9ZlOoZTnEW3YLI/edit?usp=sharing
+https://docs.google.com/spreadsheets/d/17R_y9Rb8a4ivin8sQi-HiWPHvTXZEZxU/edit?usp=sharing&ouid=112226673785996171858&rtpof=true&sd=true
+https://drive.google.com/file/d/1iyktdDAsPGDsi6Rs-VdYNEnAKEnD0WcT/view?usp=sharing
 
 ## チャレンジ要素一覧
 https://docs.google.com/spreadsheets/d/1L9lLrEXNcbHB_Sp1XMqwiBtrX64yQZBkrHYDpRKHW7E/edit#gid=0
 
 ## 技術要素
 - CRUD機能について
- ANIMAでのレビュー投稿のCRUD機能について説明します。
+ - ANIMAでのレビュー投稿のCRUD機能について説明します。
   - Createについて
    newアクションを定義する。新規投稿するときにアクションする。
    createアクションを定義する。新規投稿で入力された情報をparamsで受け取り、DBに送る。
@@ -45,7 +48,7 @@ https://docs.google.com/spreadsheets/d/1L9lLrEXNcbHB_Sp1XMqwiBtrX64yQZBkrHYDpRKH
    destroyアクションを定義する。実装の内容はupdateと同じ。
 
 - テストについて
- 今回すべてをテストできているわけではありませんがメインとなる機能にフォーカスしてテストを実行しています。
+ - 今回すべてをテストできているわけではありませんがメインとなる機能にフォーカスしてテストを実行しています。
 
 ## 開発環境
 - OS：Linux(CentOS)
