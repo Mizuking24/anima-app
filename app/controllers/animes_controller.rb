@@ -1,6 +1,6 @@
 class AnimesController < ApplicationController
   def index
-    @animes = Anime.all.reverse_order
+    @animes = Anime.page(params[:page]).reverse_order
   end
 
   def new
