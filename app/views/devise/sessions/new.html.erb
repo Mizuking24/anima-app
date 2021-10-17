@@ -6,12 +6,12 @@
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
 
-        <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-control" %></br>
+        <%= f.label :name %><br>
+        <%= f.text_field :name, autofocus: true, autocomplete: "name", class:"form-control" %><br>
 
 
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %></br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %><br>
 
         <% if devise_mapping.rememberable? %>
           <div class="field">
@@ -28,7 +28,7 @@
 
         <%#= render "devise/shared/links" %>
         <p>
-        まだ登録がお済みでない方は</br>
+        まだ登録がお済みでない方は<br>
         <%= link_to "こちら",  new_user_registration_path %>から新規登録してください。
         </p>
       </div>

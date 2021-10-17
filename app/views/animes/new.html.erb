@@ -5,7 +5,7 @@
       <!--エラーメッセージ-->
       <div class="error-message">
         <% if @anime.errors.any? %>
-          <%= @anime.errors.count %>件のエラーが発生しました</br>
+          <%= @anime.errors.count %>件のエラーが発生しました<br>
           <% @anime.errors.full_messages.each do |message| %>
             <%= message %>
           <% end %>

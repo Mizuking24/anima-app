@@ -20,7 +20,7 @@
       <p><%= @user.introduction %></p>
       <%= link_to "#{@user.followings.count}フォロー中", user_followings_path(@user), class:"text-secondary" %>
       <span> | </span>
-      <%= link_to "#{@user.followers.count}フォロワー", user_followers_path(@user), class:"text-secondary" %></br>
+      <%= link_to "#{@user.followers.count}フォロワー", user_followers_path(@user), class:"text-secondary" %><br>
       <% if current_user != @user %>
         <%= render 'relationships/follow_button', user: @user %>
       <% end %>
