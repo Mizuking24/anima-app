@@ -51,7 +51,7 @@ https://docs.google.com/spreadsheets/d/1L9lLrEXNcbHB_Sp1XMqwiBtrX64yQZBkrHYDpRKH
  - 今回すべてをテストできているわけではありませんがメインとなる機能にフォーカスしてテストを実行しています。
 
 ## 開発環境
-- OS：Linux(CentOS)
+- OS：Amazon Linux release 2 (Karoo)
 - 言語：HTML,CSS,JavaScript,Ruby,SQL
 - フレームワーク：Ruby on Rails
 - JSライブラリ：jQuery
